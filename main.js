@@ -1,15 +1,23 @@
-// The script remains unchanged
+const inputContainer = document.getElementById('inputContainer');
+const arrayInput = document.getElementById('arrayInput');
 const arrayContainer = document.getElementById('array-container');
 const startBtn = document.getElementById('start-btn');
 const resetBtn = document.getElementById('reset-btn');
+const newBtn = document.getElementById('new-btn');
+const randBtn = document.getElementById('rand-btn');
+const submitBtn = document.getElementById('submit-btn');
+const refreshBtn = document.getElementById('refresh-btn');
 const infoText = document.getElementById('info');
 const instructionsText = document.getElementById('instructions');
-let initialArray = [64, 34, 25, 12, 22, 11, 90];
+let initialArray = [];
 let array = [...initialArray];
 let isAnimating = false;
 let sortGenerator = null;
+operateButtons.style.display = "none";
+inputContainer.style.display = "none";
 
-function createArrayItems() {
+
+function createArrayItems(array) {
     arrayContainer.innerHTML = '';
     array.forEach((value, index) => {
         const item = document.createElement('div');
@@ -28,6 +36,7 @@ function updateVariables(gap, i, j, temp) {
 }
 
 function* shellSortGenerator() {
+    console.log(array);
     let n = array.length;
     for (let gap = Math.floor(n / 2); gap > 0; gap = Math.floor(gap / 2)) {
         updateVariables(gap);
@@ -98,17 +107,21 @@ function nextStep() {
             isAnimating = false;
             startBtn.disabled = false;
             resetBtn.disabled = false;
+            newBtn.disabled = false;
             instructionsText.style.display = 'none';
         }
+        
     }
 }
 
 function resetArray() {
-    array = [...initialArray];
-    createArrayItems();
+    array = [...initialArray]
+    createArrayItems(array);
     updateVariables();
     infoText.textContent = "Array reset. Click 'Start Shell Sort' to begin the visualization.";
     startBtn.disabled = false;
+    newBtn.disabled = false;
+    resetBtn.style.display = 'none';
     isAnimating = false;
 }
 
@@ -116,25 +129,59 @@ startBtn.addEventListener('click', () => {
     if (!isAnimating) {
         isAnimating = true;
         startBtn.disabled = true;
-        resetBtn.disabled = true;
+        newBtn.disabled = true;
+        randBtn.disabled = true;
         instructionsText.style.display = 'block';
         sortGenerator = shellSortGenerator();
-        nextStep();
+        nextStep(array);
     }
 });
 
 resetBtn.addEventListener('click', resetArray);
 
+newBtn.addEventListener('click', () => {
+    arrayContainer.innerHTML = '';
+    inputContainer.style.display = 'block';
+});
+
+randBtn.addEventListener('click', () => {
+    initialArray = [64, 34, 25, 12, 22, 11, 90];
+    array = [...initialArray];
+    inputContainer.style.display = 'none';
+    createArrayItems(array);
+    operateButtons.style.display = "block";
+    arrayButtons.style.display = "none";
+});
+
+submitBtn.addEventListener('click', () => {
+    const inputValue = arrayInput.value.trim();
+    if (inputValue) {
+        initialArray = inputValue.split(',').map(item => parseInt(item.trim()));
+        array = [...initialArray];
+        createArrayItems(array);
+        inputContainer.style.display = 'none';
+        arrayInput.value = '';
+    }
+    operateButtons.style.display = "block";
+    arrayButtons.style.display = "none";
+});
+
+refreshBtn.addEventListener('click', () => {
+    location.reload()
+});
+
 document.addEventListener('keydown', (event) => {
     if (event.key === 'ArrowRight' && isAnimating) {
+        resetBtn.style.display = 'inline';
         nextStep();
     }
 });
 
 document.addEventListener('touchstart', (event) => {
     if (isAnimating) {
+        resetBtn.style.display = 'inline';
         nextStep();
     }
 });
 
-createArrayItems();
+

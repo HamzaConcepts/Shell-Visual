@@ -6,10 +6,10 @@ body {
     min-height: 100vh;
     margin: 0;
     padding: 20px;
-    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    background: linear-gradient(135deg, lightblue 0%, pink 100%);
 }
 .container {
-    background-color: white;
+    background-color: rgb(231, 231, 231);
     border-radius: 10px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     padding: 20px;
@@ -18,7 +18,7 @@ body {
     max-width: 800px;
     display: flex;
     flex-direction: column;
-    min-height: 80vh;
+    min-height: 8vh;
 }
 h1 {
     text-align: center;
@@ -64,6 +64,34 @@ button {
     transition: background-color 0.3s;
     margin: 0 5px 10px 5px;
 }
+#reset-btn{
+    background: #ad1f35;
+}
+#reset-btn:hover{
+    background: maroon;
+}
+#new-btn, #rand-btn{
+    background-color: lightseagreen;
+}
+#new-btn:hover, #rand-btn:hover{
+    background-color: rgb(24, 134, 129);
+}
+#submitArrayBtn{
+    font-size: 14px;
+    background: white;
+    color: grey;
+    border: 1px solid black;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+#arrayInput{
+    padding: 5px;
+}
+#inputContainer{
+    margin-left: auto;
+    margin-right: auto;
+}
+
 button:hover {
     background-color: #45a049;
 }
@@ -73,18 +101,26 @@ button:disabled {
 }
 #info {
     margin-top: 20px;
-    font-size: 18px;
+    font-size: 14px;
     text-align: center;
 }
 #instructions {
-    margin-top: 10px;
-    font-style: italic;
+    margin-top: 20px;
+    margin-bottom: 20px;
     text-align: center;
+    font-size: 14px;
+    font-family: Inter, sans-serif;
+    color: gray;
 }
 #variables, #assignments {
+    margin-left: 40px;
     margin-top: 20px;
+    margin-right: 40px;
     font-size: 16px;
     text-align: left;
+}
+#assignments{
+    text-align: center;
 }
 
 #variables-assignments-container {
@@ -103,11 +139,23 @@ button:disabled {
         width: 100%; /* Take up full width on narrow screens */
     }
 }
+#refresh{
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#refresh-btn{
+    background-color: black;
+}
+#refresh-btn:hover{
+    background-color:#333;
+}
+
 .footer {
     margin-top: auto;
     text-align: center;
     padding: 10px;
     font-size: 14px;
-    color: #666;
-    border-top: 1px solid #eee;
+    color: #000000;
+    border-top: 1px solid #212424;
 }

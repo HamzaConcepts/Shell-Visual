@@ -10,12 +10,22 @@
     <div class="container">
         <h1>Shell Sort Visualization</h1>
         <div id="array-container"></div>
+        <div id="inputContainer">
+            <input type="text" id="arrayInput" size="25" 
+            placeholder="Enter comma-separated numbers">
+            <button id="submit-btn">Submit</button>
+        </div>
         <div style="text-align: center;">
-            <button id="start-btn">Start Shell Sort</button>
-            <button id="reset-btn">Reset Array</button>
+            <div id='arrayButtons'>
+                <button id="new-btn">Input Your Array</button>
+                <button id = "rand-btn">Random Array</button>
+            </div>
+            <div id="operateButtons">
+                <button id="start-btn">Start Shell Sort</button>
+                <button id="reset-btn">Reset Array</button>
+            </div>
         </div>
         <p id="info">Click 'Start Shell Sort' to begin the visualization.</p>
-        <p id="instructions">Press the right arrow key to proceed to the next step.</p>
         <div id = "variables-assignments-container">    
             <div id="variables">
                 <h3>Variables:</h3>
@@ -31,6 +41,10 @@
                 <p>temp = array[<span id="assignment-i-array">i</span>]</p>
             </div>
         </div>
+        <div id="refresh">
+            <button id="refresh-btn">Reset</button>
+        </div>
+        <p id="instructions">Press the right arrow key or tap to <br> proceed to the next step.</p>
         <div class="footer">
             Prompted by Hamza, Implemented by Claude
         </div>
