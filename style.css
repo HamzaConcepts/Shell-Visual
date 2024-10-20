@@ -1,0 +1,113 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    padding: 20px;
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+}
+.container {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin-bottom: 20px;
+    width: 90%;
+    max-width: 800px;
+    display: flex;
+    flex-direction: column;
+    min-height: 80vh;
+}
+h1 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 20px;
+    width: 100%;
+}
+#array-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+}
+.array-item {
+    width: 50px;
+    height: 50px;
+    border: 2px solid #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 5px;
+    font-size: 18px;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    background-color: #fff;
+}
+.comparing {
+    background-color: #ffcccb;
+    transform: scale(1.1);
+}
+.swapping {
+    background-color: #90ee90;
+    transform: scale(1.1);
+}
+button {
+    font-size: 16px;
+    padding: 10px 20px;
+    cursor: pointer;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+    margin: 0 5px 10px 5px;
+}
+button:hover {
+    background-color: #45a049;
+}
+button:disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;
+}
+#info {
+    margin-top: 20px;
+    font-size: 18px;
+    text-align: center;
+}
+#instructions {
+    margin-top: 10px;
+    font-style: italic;
+    text-align: center;
+}
+#variables, #assignments {
+    margin-top: 20px;
+    font-size: 16px;
+    text-align: left;
+}
+
+#variables-assignments-container {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    flex-wrap: wrap; /* Allows wrapping when there isn't enough space */
+}
+@media (max-width: 500px) {
+    #variables-assignments-container {
+        flex-direction: column; /* Stack the sections vertically */
+        align-items: center;
+    }
+
+    #variables, #assignments {
+        width: 100%; /* Take up full width on narrow screens */
+    }
+}
+.footer {
+    margin-top: auto;
+    text-align: center;
+    padding: 10px;
+    font-size: 14px;
+    color: #666;
+    border-top: 1px solid #eee;
+}
