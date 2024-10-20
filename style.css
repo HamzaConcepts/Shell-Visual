@@ -119,9 +119,7 @@ button:disabled {
     font-size: 16px;
     text-align: left;
 }
-#assignments{
-    text-align: center;
-}
+
 
 #variables-assignments-container {
     display: flex;
@@ -150,12 +148,20 @@ button:disabled {
 #refresh-btn:hover{
     background-color:#333;
 }
+#github{
+    height: 30px;
+}
 
 .footer {
+    margin-left: 10px;
+    margin-right: 10px;
     margin-top: auto;
     text-align: center;
-    padding: 10px;
+    padding-top: 10px;
     font-size: 14px;
     color: #000000;
     border-top: 1px solid #212424;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
 }
